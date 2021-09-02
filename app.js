@@ -1,10 +1,11 @@
 const mainDiv = document.getElementById('main');
+const div = document.createElement('div');
 const getApi = () => {
     const inputField = document.getElementById('inputField');
     const inputValue = inputField.value;
     inputField.value = '';
     if (inputValue === '') {
-        const div = document.createElement('div');
+        mainDiv.innerHTML = '';
         div.innerHTML = `
         <h2 class='text-danger mx-auto'>Please! Write a book name to get result.</h2>`
         mainDiv.appendChild(div);
@@ -18,7 +19,7 @@ const getApi = () => {
 }
 const getDetails = data => {
     if (data.numFound === 0) {
-        const div = document.createElement('div');
+        mainDiv.innerHTML = '';
         div.innerHTML = `
         <h2 class='text-danger text-center'>Sorry! There is no mathcing book found.</h2>`
         mainDiv.appendChild(div);
